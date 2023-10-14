@@ -86,7 +86,7 @@ const CustomButton = ({ dataLength, flatlistIndex, flatlistRef, x }: Props) => {
             index: flatlistIndex.value + 1,
           });
         } else {
-          console.log("Last Page");
+          <Link href={"/home"} />;
         }
       }}
     >
