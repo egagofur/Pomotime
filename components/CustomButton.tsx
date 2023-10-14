@@ -96,7 +96,6 @@ const CustomButton = ({ dataLength, flatlistIndex, flatlistRef, x }: Props) => {
         <Animated.Text style={[styles.textButton, textAnimationStyle]}>
           <Link href={"/home"}>Get Started</Link>
         </Animated.Text>
-
         <Animated.Image
           source={require("../assets/images/ArrowIcon.png")}
           style={[styles.arrow, arrowAnimationStyle]}

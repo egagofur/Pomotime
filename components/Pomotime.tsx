@@ -65,7 +65,7 @@ export const Pomotime = () => {
     state.status === "focus"
       ? "#C8A2C8"
       : state.status === "longBreak"
-      ? "#FFA6A8"
+      ? "#F97679"
       : "#FFC300";
 
   function setTimer() {
@@ -248,7 +248,7 @@ export const Pomotime = () => {
           state.status === "focus"
             ? ["#6659E4", "#C8A2C8", "#B0C4DE"]
             : state.status === "longBreak"
-            ? ["#F97679", "#FFA6A8", "#FFF1E6"]
+            ? ["#F97679", "#F97679", "#FFF1E6"]
             : ["#FFC300", "#FFC300", "#FFFFF0"]
         }
         start={[0, 0]}
@@ -331,7 +331,7 @@ const styles = StyleSheet.create({
     width: "100%",
     alignItems: "center",
     justifyContent: "center",
-    padding: 10,
+    padding: 15,
   },
   textWatermark: {
     fontSize: 14,
