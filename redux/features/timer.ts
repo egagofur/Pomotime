@@ -11,9 +11,9 @@ interface InitialState {
 export const timer = createSlice({
   name: "timer",
   initialState: {
-    focus: 1,
-    shortBreak: 1,
-    longBreak: 1,
+    focus: 25,
+    shortBreak: 5,
+    longBreak: 15,
     replay: 4,
     speed: 1.03,
   } as InitialState,
