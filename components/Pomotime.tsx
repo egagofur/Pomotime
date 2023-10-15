@@ -153,7 +153,6 @@ export const Pomotime = () => {
 
   useEffect(() => {
     if (state.timer.minutes === 0 && state.timer.seconds === 0) {
-      // Timer mencapai 0, maka panggil pemutaran suara
       alarmPlay();
     }
     if (!state.timer.pause) {
@@ -181,57 +180,54 @@ export const Pomotime = () => {
           }
         }, (1 / speed) * 1000);
         return () => clearTimeout(timer);
-      } else if (
-        state.status === "focus" &&
-        state.counter < replay &&
-        state.phase < 4
-      ) {
-        setState((prev) => ({
-          ...prev,
-          status: "shortBreak",
-          timer: {
-            ...prev.timer,
-            pause: true,
-            minutes: shortBreak,
-            seconds: 0,
-          },
-        }));
-      } else if (state.status === "shortBreak") {
-        setState((prev) => ({
-          ...prev,
-          status: "focus",
-          timer: {
-            ...prev.timer,
-            pause: true,
-            minutes: focus,
-            seconds: 0,
-          },
-          phase: state.phase + 1,
-        }));
-      } else if (state.status === "longBreak") {
-        setState((prev) => ({
-          ...prev,
-          status: "focus",
-          timer: {
-            ...prev.timer,
-            pause: true,
-            minutes: focus,
-            seconds: 0,
-          },
-          phase: 1,
-        }));
       } else {
-        setState((prev) => ({
-          ...prev,
-          status: "longBreak",
-          timer: {
-            ...prev.timer,
-            pause: true,
-            minutes: longBreak,
-            seconds: 0,
-          },
-          counter: 0,
-        }));
+        if (
+          state.status === "focus" &&
+          state.counter < replay &&
+          state.phase < 4
+        ) {
+          setState((prev) => ({
+            ...prev,
+            status: "shortBreak",
+          }));
+        } else if (state.status === "shortBreak") {
+          setState((prev) => ({
+            ...prev,
+            status: "focus",
+            timer: {
+              ...prev.timer,
+              pause: true,
+              minutes: focus,
+              seconds: 0,
+            },
+            phase: state.phase + 1,
+          }));
+        } else if (state.status === "longBreak" && state.phase === 4) {
+          alarmPlay();
+          setState((prev) => ({
+            ...prev,
+            status: "focus",
+            timer: {
+              ...prev.timer,
+              pause: true,
+              minutes: focus,
+              seconds: 0,
+            },
+            phase: 1,
+          }));
+        } else {
+          setState((prev) => ({
+            ...prev,
+            status: "longBreak",
+            timer: {
+              ...prev.timer,
+              pause: true,
+              minutes: longBreak,
+              seconds: 0,
+            },
+            counter: 0,
+          }));
+        }
       }
     }
   }, [state.timer]);
