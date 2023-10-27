@@ -1,5 +1,5 @@
 import { ReduxProvider } from "../redux/provider";
-import { Pomotime } from "../components/Pomotime";
+import { Pomotime } from "../components/Pomotime/Pomotime";
 
 const Home = () => {
   return (

@@ -5,9 +5,9 @@ import Animated, {
   useSharedValue,
 } from "react-native-reanimated";
 import data from "../data/data";
-import RenderItem from "../components/RenderItem";
-import Pagination from "../components/Pagination";
-import CustomButton from "../components/CustomButton";
+import Pagination from "../components/GetStarted/Pagination";
+import ButtonGetStarted from "../components/GetStarted/ButtonGetStarted";
+import PageGetStarted from "../components/GetStarted/PageGetStarted";
 
 export default function Index() {
   // @ts-ignore
@@ -39,7 +39,7 @@ export default function Index() {
           data={data}
           onScroll={onScroll}
           renderItem={({ item, index }) => {
-            return <RenderItem item={item} index={index} x={x} />;
+            return <PageGetStarted item={item} index={index} x={x} />;
           }}
           keyExtractor={(item) => item.id.toString()}
           scrollEventThrottle={16}
@@ -56,7 +56,7 @@ export default function Index() {
       </View>
       <View style={styles.buttomContainer}>
         <Pagination data={data} x={x} />
-        <CustomButton
+        <ButtonGetStarted
           flatlistRef={flatlistRef}
           flatlistIndex={flatlistIndex}
           x={x}

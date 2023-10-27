@@ -1,6 +1,6 @@
 import { View, Text, useWindowDimensions, StyleSheet } from "react-native";
 import React from "react";
-import { OnboardingData } from "../data/data";
+import { OnboardingData } from "../../data/data";
 import LottieView from "lottie-react-native";
 import Animated, {
   Extrapolate,
@@ -15,7 +15,7 @@ type Props = {
   x: SharedValue<number>;
 };
 
-const RenderItem = ({ item, index, x }: Props) => {
+const PageGetStarted = ({ item, index, x }: Props) => {
   const { width: SCREEN_WIDTH } = useWindowDimensions();
 
   const lottieAnimationStyle = useAnimatedStyle(() => {
@@ -80,7 +80,7 @@ const RenderItem = ({ item, index, x }: Props) => {
   );
 };
 
-export default RenderItem;
+export default PageGetStarted;
 
 const styles = StyleSheet.create({
   itemContainer: {

@@ -12,7 +12,7 @@ import Animated, {
   withSpring,
   withTiming,
 } from "react-native-reanimated";
-import { OnboardingData } from "../data/data";
+import { OnboardingData } from "../../data/data";
 import { Link } from "expo-router";
 
 type Props = {
@@ -22,7 +22,12 @@ type Props = {
   x: SharedValue<number>;
 };
 
-const CustomButton = ({ dataLength, flatlistIndex, flatlistRef, x }: Props) => {
+const ButtonGetStarted = ({
+  dataLength,
+  flatlistIndex,
+  flatlistRef,
+  x,
+}: Props) => {
   const { width: SCREEN_WIDTH } = useWindowDimensions();
 
   const buttonAnimationStyle = useAnimatedStyle(() => {
@@ -97,7 +102,7 @@ const CustomButton = ({ dataLength, flatlistIndex, flatlistRef, x }: Props) => {
           <Link href={"/home"}>Get Started</Link>
         </Animated.Text>
         <Animated.Image
-          source={require("../assets/images/ArrowIcon.png")}
+          source={require("../../assets/images/ArrowIcon.png")}
           style={[styles.arrow, arrowAnimationStyle]}
         />
       </Animated.View>
@@ -105,7 +110,7 @@ const CustomButton = ({ dataLength, flatlistIndex, flatlistRef, x }: Props) => {
   );
 };
 
-export default CustomButton;
+export default ButtonGetStarted;
 
 const styles = StyleSheet.create({
   container: {

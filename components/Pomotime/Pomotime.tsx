@@ -4,8 +4,8 @@ import { StyleSheet, Text, View } from "react-native";
 import { Timer } from "./Timer";
 import { PhaseInfo } from "./PhaseInfo";
 import { PlayAction } from "./PlayAction";
-import { useAppSelector } from "../redux/store";
-import { initialState } from "../types/timer";
+import { useAppSelector } from "../../redux/store";
+import { initialState } from "../../types/timer";
 import { Audio } from "expo-av";
 import { Link } from "expo-router";
 
@@ -36,7 +36,7 @@ export const Pomotime = () => {
   const alarmPlay = async () => {
     try {
       const { sound } = await Audio.Sound.createAsync(
-        require("../assets/alarm.wav")
+        require("../../assets/alarm.wav")
       );
       setSound(sound);
       await sound.playAsync();
@@ -47,7 +47,7 @@ export const Pomotime = () => {
 
   const handleSoundButtonNext = async () => {
     const { sound } = await Audio.Sound.createAsync(
-      require("../assets/button-next.mp3")
+      require("../../assets/button-next.mp3")
     );
     setSoundButtonNext(sound);
     await sound.playAsync();
@@ -55,7 +55,7 @@ export const Pomotime = () => {
 
   const handleSoundButtonClick = async () => {
     const { sound } = await Audio.Sound.createAsync(
-      require("../assets/button.mp3")
+      require("../../assets/button.mp3")
     );
     setSoundButtonClicked(sound);
     await sound.playAsync();

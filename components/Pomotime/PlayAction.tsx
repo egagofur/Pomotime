@@ -1,7 +1,7 @@
-import React from 'react';
-import { Pressable, StyleSheet, View } from 'react-native';
-import { Ionicons, MaterialIcons } from '@expo/vector-icons';
-import { ITimer, ITimerStatus } from '../types/timer';
+import React from "react";
+import { Pressable, StyleSheet, View } from "react-native";
+import { Ionicons, MaterialIcons } from "@expo/vector-icons";
+import { ITimer, ITimerStatus } from "../../types/timer";
 
 interface PlayActionProps {
   handlePause(): void;
@@ -23,14 +23,14 @@ export const PlayAction = (props: PlayActionProps) => {
         onPress={handlePause}
       >
         <Ionicons
-          name={!timer.pause ? 'pause-outline' : 'play-outline'}
+          name={!timer.pause ? "pause-outline" : "play-outline"}
           size={40}
           color="white"
         />
       </Pressable>
       <Pressable style={styles.nextButton} onPress={handleNext}>
         <MaterialIcons
-          name={phase === 4 && status === 'longBreak' ? 'replay' : 'skip-next'}
+          name={phase === 4 && status === "longBreak" ? "replay" : "skip-next"}
           size={40}
           color="gray"
         />
@@ -41,35 +41,35 @@ export const PlayAction = (props: PlayActionProps) => {
 
 const styles = StyleSheet.create({
   container: {
-    display: 'flex',
+    display: "flex",
     padding: 20,
     borderRadius: 10,
     gap: 10,
-    width: '100%',
-    alignItems: 'center',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
+    width: "100%",
+    alignItems: "center",
+    flexDirection: "row",
+    justifyContent: "space-between",
   },
   playButton: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
     width: 100,
     height: 100,
     borderRadius: 50,
   },
   prevButton: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
     width: 50,
     height: 50,
     opacity: 0,
   },
   nextButton: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
     width: 50,
     height: 50,
   },

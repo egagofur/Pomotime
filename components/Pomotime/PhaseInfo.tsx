@@ -1,7 +1,7 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import { Loader } from './Loader';
-import { ITimer, ITimerStatus } from '../types/timer';
+import React from "react";
+import { StyleSheet, Text, View } from "react-native";
+import { Loader } from "./Loader";
+import { ITimer, ITimerStatus } from "../../types/timer";
 
 interface PhaseInfoProps {
   phase: number;
@@ -18,34 +18,34 @@ export const PhaseInfo = (props: PhaseInfoProps) => {
   function renderPhase() {
     switch (phase) {
       case 1:
-        return 'First';
+        return "First";
       case 2:
-        return 'Second';
+        return "Second";
       case 3:
-        return 'Third';
+        return "Third";
       case 4:
-        return 'Fourth';
+        return "Fourth";
       default:
-        return 'First';
+        return "First";
     }
   }
 
   function renderNextPhase() {
-    if (status === 'shortBreak') {
+    if (status === "shortBreak") {
       switch (phase) {
         case 1:
-          return 'Second Phase';
+          return "Second Phase";
         case 2:
-          return 'Third Phase';
+          return "Third Phase";
         case 3:
-          return 'Fourth Phase';
+          return "Fourth Phase";
         default:
-          return 'First Phase';
+          return "First Phase";
       }
-    } else if (status === 'focus' && phase === 4) {
-      return 'Long Break';
+    } else if (status === "focus" && phase === 4) {
+      return "Long Break";
     } else {
-      return 'Short Break';
+      return "Short Break";
     }
   }
   return (
@@ -54,15 +54,15 @@ export const PhaseInfo = (props: PhaseInfoProps) => {
         {renderPhase()} Phase
       </Text>
       <Text style={styles.description}>
-        {renderStatus} -{' '}
-        {status === 'focus' ? 25 : status === 'shortBreak' ? 5 : 15} minutes
+        {renderStatus} -{" "}
+        {status === "focus" ? 25 : status === "shortBreak" ? 5 : 15} minutes
       </Text>
       <View style={styles.progressContainer}>
         <View style={styles.between}>
           <Text style={{ ...styles.remaining, color: currentColor }}>
             {timer.minutes} minutes remaining
           </Text>
-          {status !== 'longBreak' && (
+          {status !== "longBreak" && (
             <Text style={styles.description}>Next: {renderNextPhase()}</Text>
           )}
         </View>
@@ -74,30 +74,30 @@ export const PhaseInfo = (props: PhaseInfoProps) => {
 
 const styles = StyleSheet.create({
   phase: {
-    width: '100%',
-    backgroundColor: '#fff',
+    width: "100%",
+    backgroundColor: "#fff",
     borderTopLeftRadius: 25,
     borderBottomLeftRadius: 25,
     borderBottomRightRadius: 25,
     padding: 20,
-    position: 'absolute',
+    position: "absolute",
     top: -75,
     shadowOffset: {
       width: 4,
       height: 4,
     },
-    shadowColor: 'grey',
+    shadowColor: "grey",
     shadowOpacity: 0.3,
   },
   title: {
     fontSize: 24,
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
   description: {
     fontSize: 12,
-    fontWeight: '200',
-    color: 'gray',
-    textTransform: 'capitalize',
+    fontWeight: "200",
+    color: "gray",
+    textTransform: "capitalize",
   },
   progressContainer: {
     marginTop: 30,
@@ -105,11 +105,11 @@ const styles = StyleSheet.create({
   },
   remaining: {
     fontSize: 12,
-    fontWeight: '400',
+    fontWeight: "400",
   },
   between: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    flexDirection: 'row',
+    display: "flex",
+    justifyContent: "space-between",
+    flexDirection: "row",
   },
 });
